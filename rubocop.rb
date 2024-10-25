@@ -11,7 +11,7 @@ versioned_rubocop_gems =
     require "bundler"
 
     Bundler::LockfileParser.new(Bundler.read_file("Gemfile.lock")).specs
-      .select { |spec| spec.name.start_with? "rubocop" }
+      .select { |spec| spec.name.start_with?("rubocop", "standard") }
       .map { |spec| "#{spec.name}:#{spec.version}" }
   else
     ENV.fetch("RUBOCOP_GEM_VERSIONS").split
